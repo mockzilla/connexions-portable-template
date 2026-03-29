@@ -1,0 +1,9 @@
+app:
+  port: 2200
+  title: "API Explorer"
+
+services:
+  petstore:
+    latency: 100ms
+    errors:
+      "5": 500

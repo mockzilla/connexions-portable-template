@@ -2,12 +2,12 @@
 
 A template for creating self-contained mock API servers using [Connexions](https://github.com/mockzilla/connexions).
 
-Place your OpenAPI specs in the `openapi/` directory, build a single binary, and run it anywhere - no external files needed.
+Place your OpenAPI specs in `openapi/` and static responses in `static/`, build a single binary, and run it anywhere - no external files needed.
 
 ## Quick start
 
 1. Click **Use this template** on GitHub to create your own repository
-2. Replace `openapi/petstore.yml` with your own OpenAPI spec(s)
+2. Add your OpenAPI specs to `openapi/` and/or static responses to `static/`
 3. Build and run:
 
 ```sh
@@ -25,17 +25,22 @@ The server starts on port 2200 by default.
 --context PATH  Per-service context YAML for value replacements
 ```
 
-## Adding more specs
+## OpenAPI specs
 
-Drop any `.yml`, `.yaml`, or `.json` OpenAPI spec files into the `openapi/` directory. Each spec becomes a separate service, accessible at `/{service-name}/`.
+Drop `.yml`, `.yaml`, or `.json` OpenAPI spec files into the `openapi/` directory.
+Each spec becomes a separate service, accessible at `/{service-name}/`.
 
-## Configuration
+## Static responses
 
-To embed a config file, add `app.yml` to the project root and update the embed directive in `main.go`:
+Create directories under `static/{service-name}/{method}/` with JSON response files:
 
-```go
-//go:embed openapi app.yml
-var content embed.FS
+```
+static/
+  hello-world/
+    get/
+      index.json          -> GET /
+    post/
+      index.json          -> POST /
 ```
 
-See the [Connexions docs](https://github.com/mockzilla/connexions) for config options.
+See the [Connexions docs](https://github.com/mockzilla/connexions) for more options.

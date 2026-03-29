@@ -7,7 +7,7 @@ import (
 	"github.com/mockzilla/connexions/v2/pkg/portable"
 )
 
-//go:embed openapi
+//go:embed openapi static
 var content embed.FS
 
 func main() {
