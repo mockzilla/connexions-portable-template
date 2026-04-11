@@ -63,6 +63,7 @@ You can customize the action in `.github/workflows/mockzilla.yml`:
     memory-size: 256         # optional — memory in MB (default: 128)
     timeout: 60              # optional — request timeout in seconds
     environment: '{"ENV":"production","DEBUG":"true"}'  # optional
+    host: api.mockzilla.net  # optional — API host for the simulation URL
     spec-dir: openapi        # optional — directory with OpenAPI specs (default: 'openapi')
     static-dir: static       # optional — directory with static responses (default: 'static')
     timeout-minutes: 5       # optional — max minutes to wait for simulation to become active (default: 5)
@@ -75,6 +76,7 @@ You can customize the action in `.github/workflows/mockzilla.yml`:
 | `memory-size` | no | Memory in megabytes (e.g. `128`, `256`, `512`). Defaults to `128`. |
 | `timeout` | no | Request timeout for the simulation in seconds (e.g. `30`, `60`). |
 | `environment` | no | JSON object of environment variables to set in the simulation (e.g. `'{"ENV":"production"}'`). |
+| `host` | no | API host for the simulation URL (`api.mockzilla.org`, `api.mockzilla.de`, or `api.mockzilla.net`). Defaults to org setting or `api.mockzilla.org`. |
 | `spec-dir` | no | Directory containing OpenAPI specs. Defaults to `openapi`. |
 | `static-dir` | no | Directory containing static API responses. Defaults to `static`. |
 | `timeout-minutes` | no | Max minutes the action polls for the simulation to become active. Defaults to `5`. |
