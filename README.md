@@ -67,6 +67,7 @@ You can customize the action in `.github/workflows/mockzilla.yml`:
     spec-dir: openapi        # optional — directory with OpenAPI specs (default: 'openapi')
     static-dir: static       # optional — directory with static responses (default: 'static')
     timeout-minutes: 5       # optional — max minutes to wait for simulation to become active (default: 5)
+    delete: false            # optional — remove this repository from Mockzilla (default: false)
 ```
 
 | Input | Required | Description |
@@ -80,6 +81,29 @@ You can customize the action in `.github/workflows/mockzilla.yml`:
 | `spec-dir` | no | Directory containing OpenAPI specs. Defaults to `openapi`. |
 | `static-dir` | no | Directory containing static API responses. Defaults to `static`. |
 | `timeout-minutes` | no | Max minutes the action polls for the simulation to become active. Defaults to `5`. |
+| `delete` | no | Remove this repository from Mockzilla. When set to `true`, the action skips publishing and deletes all mock APIs for this repo. Useful on the free plan to free up your slot before connecting a different repository. Defaults to `false`. |
+
+### Removing this repository from Mockzilla
+
+On the free plan you can only have one repository connected to Mockzilla at a time. To switch to a different repo, run the action with `delete: true` on the old one first:
+
+```yaml
+name: mockzilla-remove
+
+on:
+  workflow_dispatch:
+
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mockzilla/actions/portable@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          delete: true
+```
+
+Trigger it manually from the **Actions** tab when you're ready.
 
 ### Check your simulation URL
 
