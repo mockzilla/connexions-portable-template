@@ -1,3 +1,4 @@
 .idea
 mock-server
 *.exe
+.data
