@@ -1,12 +1,12 @@
-# Connexions Portable Template
+# Mockzilla Portable Template
 
-A template for creating self-contained mock API servers using [Connexions](https://github.com/mockzilla/connexions).
+A template for creating self-contained mock API servers using [Mockzilla](https://github.com/mockzilla/mockzilla).
 
 Place your OpenAPI specs in `openapi/` and static responses in `static/`, build a single binary, and run it anywhere - no external files needed.
 
 ## Quick start
 
-1. Click [**Use this template**](https://github.com/mockzilla/connexions-portable-template/generate) to create your own repository
+1. Click [**Use this template**](https://github.com/mockzilla/mockzilla-portable-template/generate) to create your own repository
 2. Add your OpenAPI specs to `openapi/` and/or static responses to `static/`
 3. Push to main - binaries for Linux, macOS, and Windows are built automatically and published to **Releases**
 
@@ -28,7 +28,7 @@ static/
       index.json          -> POST /
 ```
 
-See the [Connexions docs](https://github.com/mockzilla/connexions) for more options.
+See the [Mockzilla docs](https://github.com/mockzilla/mockzilla) for more options.
 
 ## Release
 

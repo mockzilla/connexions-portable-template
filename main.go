@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mockzilla/connexions/v2/pkg/portable"
+	"github.com/mockzilla/mockzilla/v2/pkg/portable"
 )
 
 var version = "dev"
